@@ -32,7 +32,7 @@ class Path:
                 # perfrom wait operations
                 wait = self.player.currentRoom.cooldown
                 sleep(wait)
-                self.player.travel(back)
+                self.player.post_move(back)
 
             # Get next move
             move = self.mapped[self.player.currentRoom.room_id].pop(0)
@@ -54,7 +54,7 @@ class Path:
 
             wait = self.player.currentRoom.cooldown
             sleep(wait)
-            self.player.travel(move)
+            self.player.post_move(move)
         # print(self.mapped)
         print(path)
         print(self.saved_map)
