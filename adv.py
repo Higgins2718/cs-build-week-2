@@ -24,5 +24,31 @@ def post_move(direction):
     print(response.text)
     return response
 
+def post_take():
+    headers = {
+        'Authorization': api_key,
+        'Content-Type': 'application/json',
+    }
+
+    data = '{"name":"treasure"}'
+
+    response = requests.post('https://lambda-treasure-hunt.herokuapp.com/api/adv/take/', headers=headers, data=data)
+    print(response.text)
+    return response
+
+def post_status():
+    headers = {
+        'Authorization': api_key,
+        'Content-Type': 'application/json',
+    }
+
+    response = requests.post('https://lambda-treasure-hunt.herokuapp.com/api/adv/status/', headers=headers)
+    print(response.text)
+    return response
+
 # Uncomment here to test
-post_move('e')
+
+# post_move('e')
+# post_take()
+# post_status()
+
