@@ -3,6 +3,7 @@ class Room:
         self.room_id = json_response['room_id']
         self.name = json_response['title']
         self.cooldown = json_response['cooldown']
+        self.terrain = json_response['terrain']
         self.description = json_response['description']
         self.exits = json_response['exits']
         self.items = json_response['items']
