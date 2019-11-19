@@ -47,7 +47,6 @@ class Room:
         else:
             print("INVALID ROOM CONNECTION")
             return None
-
     def getRoomInDirection(self, direction):
         if direction == "n":
             return self.n_to
@@ -88,7 +87,6 @@ class Path:
 
         # {0: ['n', 's', 'w', 'e']}
         self.mapped[self.player.currentRoom.id] = self.player.currentRoom.getExits()
-
         # graph consisting of 500 rooms
         while len(self.mapped) < 499:
             if self.player.currentRoom.id not in self.mapped:
@@ -118,12 +116,10 @@ class Path:
                 backTrack.append("w")
             elif move == "w":
                 backTrack.append("e")
-
             # travel to next room
 
             # perfrom wait operations
             self.player.travel(move)
-
         # print(self.mapped)
         print(path)
         return path
@@ -142,7 +138,6 @@ class Path:
 
         # {0: ['n', 's', 'w', 'e']}
         self.mapped[self.player.currentRoom.id] = self.player.currentRoom.getExits()
-
         # graph consisting of 500 rooms
         while len(self.mapped) < 499:
             if self.player.currentRoom.id not in self.mapped:
@@ -172,7 +167,6 @@ class Path:
                 backTrack.append("w")
             elif move == "w":
                 backTrack.append("e")
-
             # travel to next room
 
             # perfrom wait operations

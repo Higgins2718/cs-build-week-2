@@ -47,6 +47,8 @@ def post_status():
     return response
 
 # Uncomment here to test
+
 # post_move('e')
 # post_take()
 # post_status()
+
