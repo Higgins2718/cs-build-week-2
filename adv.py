@@ -1,5 +1,5 @@
 import requests
-from json import dumps
+from json import dumps, loads
 from keys import api_key
 
 def post_move(direction):
@@ -21,8 +21,9 @@ def post_move(direction):
         data = '{"direction":"w"}'
 
     response = requests.post('https://lambda-treasure-hunt.herokuapp.com/api/adv/move/', headers=headers, data=data)
-    print(response.text)
-    return response
+    # print(response.text)
+    return loads(response.text)
 
 # Uncomment here to test
-post_move('e')
+json_response = post_move('n')
+print(json_response["title"])
