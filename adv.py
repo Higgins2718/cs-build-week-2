@@ -25,4 +25,4 @@ def post_move(direction):
     return response
 
 # Uncomment here to test
-#post_move('e')
+post_move('e')
