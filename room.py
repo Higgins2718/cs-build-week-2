@@ -5,12 +5,11 @@ class Room:
         self.cooldown = json_response['cooldown']
         self.description = json_response['description']
         self.exits = json_response['exits']
-        self.inventory = json_response['inventory']
-        self.status = json_response['status']
+        self.items = json_response['items']
         self.errors = json_response['errors']
         self.messages = json_response['messages']
 
-
+#{'room_id': 19, 'title': 'A misty room', 'description': 'You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.', 'coordinates': '(60,62)', 'elevation': 0, 'terrain': 'NORMAL', 'players': ['player455'], 'items': [], 'exits': ['n', 's', 'w'], 'cooldown': 15.0, 'errors': [], 'messages': ['You have walked south.']}
 
     # def __str__(self):
     #     return f"\n-------------------\n\n{self.name}\n\n   {self.description}\n\n{self.getExitsString()}\n"

@@ -1,4 +1,7 @@
+from room import Room
+
 import requests
+
 from json import dumps, loads
 from keys import api_key
 
@@ -25,5 +28,7 @@ def post_move(direction):
     return loads(response.text)
 
 # Uncomment here to test
-json_response = post_move('n')
-print(json_response["title"])
+json_response = post_move('s')
+room = Room(json_response)
+print(room.room_id, room.exits)
+
