@@ -1,3 +1,5 @@
+from time import sleep
+
 from room import Room
 class Path:
     def __init__(self, player):
@@ -28,6 +30,8 @@ class Path:
                 path.append(back)
 
                 # perfrom wait operations
+                wait = self.player.currentRoom.cooldown
+                sleep(wait)
                 self.player.travel(back)
 
             # Get next move
@@ -47,6 +51,9 @@ class Path:
             
             # travel to next room
             # perfrom wait operations
+
+            wait = self.player.currentRoom.cooldown
+            sleep(wait)
             self.player.travel(move)
         # print(self.mapped)
         print(path)
