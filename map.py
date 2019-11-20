@@ -1,6 +1,7 @@
 from time import sleep
-
 from room import Room
+
+
 class Path:
     def __init__(self, player):
         self.player = player
@@ -15,9 +16,15 @@ class Path:
         # {0: ['n', 's', 'w', 'e']}
         self.mapped[self.player.currentRoom.room_id] = self.player.currentRoom.exits
         # graph consisting of 500 rooms
+        sleep(2)
         while len(self.mapped) < 499:
-            if self.player.currentRoom.id not in self.mapped:
-                self.saved_map.append[self.player.currentRoom]
+            
+            sleep(2)
+            
+            room = self.player.currentRoom
+            print(f"\n\n{room.room_id}: {room.name} - {room.description}")
+            if self.player.currentRoom.room_id not in self.mapped:
+                self.saved_map.append(self.player.currentRoom)
                 
                 currentroomID = self.player.currentRoom.room_id
                 exits = self.player.currentRoom.exits
@@ -30,9 +37,9 @@ class Path:
                 path.append(back)
 
                 # perfrom wait operations
+                self.player.post_move(back)
                 wait = self.player.currentRoom.cooldown
                 sleep(wait)
-                self.player.post_move(back)
 
             # Get next move
             move = self.mapped[self.player.currentRoom.room_id].pop(0)
@@ -52,9 +59,9 @@ class Path:
             # travel to next room
             # perfrom wait operations
 
+            self.player.post_move(move)
             wait = self.player.currentRoom.cooldown
             sleep(wait)
-            self.player.post_move(move)
         # print(self.mapped)
         print(path)
         print(self.saved_map)
