@@ -1,0 +1,40 @@
+Current Room ID: 332
+ Current Room Name: A misty room
+ Room Coordinates: (57,71)Current Room ID: 350
+ Current Room Name: A misty room
+ Room Coordinates: (57,72)Current Room ID: 436
+ Current Room Name: A misty room
+ Room Coordinates: (57,73)
+ Room Items: []
+ Path: []
+
+Current Room ID: 350
+ Current Room Name: A misty room
+ Room Coordinates: (57,72)
+ Room Items: []
+ Path: ['s']
+
+Current Room ID: 332
+ Current Room Name: A misty room
+ Room Coordinates: (57,71)
+ Room Items: []
+ Path: ['s', 's']
+
+Current Room ID: 328
+ Current Room Name: A misty room
+ Room Coordinates: (57,70)
+ Room Items: []
+ Path: ['s', 's', 's']
+
+Current Room ID: 328
+Current Room Name: A misty room
+Room Coordinates: (57,70)
+Room Items: []
+Path: []
+
+Current Room ID: 332
+Current Room Name: A misty room
+Room Coordinates: (57,71)
+Room Items: []
+Path: ['n']
+

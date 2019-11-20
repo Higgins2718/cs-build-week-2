@@ -9,6 +9,7 @@ class Room:
         self.items = json_response['items']
         self.errors = json_response['errors']
         self.messages = json_response['messages']
+        self.coordinates = json_response['coordinates']
 
 #{'room_id': 19, 'title': 'A misty room', 'description': 'You are standing on grass and surrounded by a dense mist. You can barely make out the exits in any direction.', 'coordinates': '(60,62)', 'elevation': 0, 'terrain': 'NORMAL', 'players': ['player455'], 'items': [], 'exits': ['n', 's', 'w'], 'cooldown': 15.0, 'errors': [], 'messages': ['You have walked south.']}
 
