@@ -1,0 +1,142 @@
+Current Room ID: 332
+ Current Room Name: A misty room
+ Room Coordinates: (57,71)Current Room ID: 350
+ Current Room Name: A misty room
+ Room Coordinates: (57,72)Current Room ID: 436
+ Current Room Name: A misty room
+ Room Coordinates: (57,73)
+ Room Items: []
+ Path: []
+
+Current Room ID: 350
+ Current Room Name: A misty room
+ Room Coordinates: (57,72)
+ Room Items: []
+ Path: ['s']
+
+Current Room ID: 332
+ Current Room Name: A misty room
+ Room Coordinates: (57,71)
+ Room Items: []
+ Path: ['s', 's']
+
+Current Room ID: 328
+ Current Room Name: A misty room
+ Room Coordinates: (57,70)
+ Room Items: []
+ Path: ['s', 's', 's']
+
+Current Room ID: 328
+Current Room Name: A misty room
+Room Coordinates: (57,70)
+Room Items: []
+Path: []
+
+Current Room ID: 332
+Current Room Name: A misty room
+Room Coordinates: (57,71)
+Room Items: []
+Path: ['n']
+
+Current Room ID: 350
+Current Room Name: A misty room
+Room Coordinates: (57,72)
+Room Items: []
+Path: []
+
+Current Room ID: 436
+Current Room Name: A misty room
+Room Coordinates: (57,73)
+Room Items: []
+Path: ['n']
+
+Current Room ID: 332
+Current Room Name: A misty room
+Room Coordinates: (57,71)
+Room Items: []
+Path: ['n', 's', 's']
+
+Current Room ID: 328
+Current Room Name: A misty room
+Room Coordinates: (57,70)
+Room Items: []
+Path: ['n', 's', 's', 's']
+
+Current Room ID: 312
+Current Room Name: A misty room
+Room Coordinates: (57,69)
+Room Items: []
+Path: ['n', 's', 's', 's', 's']
+
+Current Room ID: 268
+Current Room Name: A misty room
+Room Coordinates: (58,69)
+Room Items: []
+Path: ['n', 's', 's', 's', 's', 'e']
+
+Current Room ID: 203
+Current Room Name: A misty room
+Room Coordinates: (58,68)
+Room Items: []
+Path: ['n', 's', 's', 's', 's', 'e', 's']
+
+Current Room ID: 165
+Current Room Name: A misty room
+Room Coordinates: (58,67)
+Room Items: []
+Path: ['n', 's', 's', 's', 's', 'e', 's', 's']
+
+Current Room ID: 125
+Current Room Name: A misty room
+Room Coordinates: (58,66)
+Room Items: []
+Path: ['n', 's', 's', 's', 's', 'e', 's', 's', 's']
+
+Current Room ID: 83
+Current Room Name: A misty room
+Room Coordinates: (59,66)
+Room Items: []
+Path: ['n', 's', 's', 's', 's', 'e', 's', 's', 's', 'e']
+
+Current Room ID: 76
+Current Room Name: A misty room
+Room Coordinates: (59,65)
+Room Items: []
+Path: ['n', 's', 's', 's', 's', 'e', 's', 's', 's', 'e', 's']
+
+Current Room ID: 72
+Current Room Name: A misty room
+Room Coordinates: (60,65)
+Room Items: []
+Path: ['n', 's', 's', 's', 's', 'e', 's', 's', 's', 'e', 's', 'e']
+
+Current Room ID: 63
+Current Room Name: A misty room
+Room Coordinates: (60,64)
+Room Items: []
+Path: ['n', 's', 's', 's', 's', 'e', 's', 's', 's', 'e', 's', 'e', 's']
+
+Current Room ID: 20
+Current Room Name: A misty room
+Room Coordinates: (60,63)
+Room Items: []
+Path: ['n', 's', 's', 's', 's', 'e', 's', 's', 's', 'e', 's', 'e', 's', 's']
+
+Current Room ID: 19
+Current Room Name: A misty room
+Room Coordinates: (60,62)
+Room Items: []
+Path: ['n', 's', 's', 's', 's', 'e', 's', 's', 's', 'e', 's', 'e', 's', 's', 's']
+
+Current Room ID: 10
+Current Room Name: A misty room
+Room Coordinates: (60,61)
+Room Items: []
+Path: ['n', 's', 's', 's', 's', 'e', 's', 's', 's', 'e', 's', 'e', 's', 's', 's', 's']
+
+Current Room ID: 0
+Current Room Name: A brightly lit room
+Room Coordinates: (60,60)
+Room Items: []
+Path: ['n', 's', 's', 's', 's', 'e', 's', 's', 's', 'e', 's', 'e', 's', 's', 's', 's', 's']
+
