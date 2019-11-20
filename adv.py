@@ -7,7 +7,7 @@ from time import sleep
 from json import dumps, loads
 from keys import api_key
 from room import Room
-from map import Path
+from path import Path
 
 # Uncomment here to test
 def get_init():
@@ -16,7 +16,7 @@ def get_init():
         'Content-Type': 'application/json',
     }
     response = requests.get('https://lambda-treasure-hunt.herokuapp.com/api/adv/init/', headers=headers)
-    print(response.text)
+    # print(response.text)
     return loads(response.text)
 
 
@@ -32,11 +32,14 @@ def post_status():
 
 
 if __name__ == "__main__":
+    # json_player = post_status()
+    # sleep(5)
+    # room_json = get_init()
+    # room = Room(room_json)
+    # player = Player(json_player, room)
 
-    json_player = post_status()
-    sleep(1)
-    room = Room(get_init())
-    player = Player(json_player, room)
+    # path = Path(player)
 
-    path = Path(player)
-    path.dfs()
+    b = Path(None).backtrack(['n', 'n', 'n', 'n', 'n', 'w', 'n', 'e'])
+    print(b)
+    # path.dfs()
