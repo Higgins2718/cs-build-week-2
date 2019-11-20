@@ -3,9 +3,6 @@ from room import Room
 
 name_changer = 467 #: Pirate Ry's
 
-
-
-
 class Path:
     def __init__(self, player):
         self.player = player
@@ -37,10 +34,10 @@ class Path:
             sleep(self.player.currentRoom.cooldown)
 
 
-    def statusPrint(self):
-        print(f"\n\n{self.player.currentRoom.room_id}: {self.player.currentRoom.name} - moves: {self.player.currentRoom.exits}\n{self.player.currentRoom.description}\nerror: {self.player.currentRoom.errors} \n{self.player.currentRoom.items}\n{path}\nmaped: {self.saved_map}")
+    def statusPrint(self, path):
+        print(f"\n\n{self.player.currentRoom.room_id}: {self.player.currentRoom.name} - moves: {self.player.currentRoom.exits}\n{self.player.currentRoom.description}\nerror: {self.player.currentRoom.errors} \n{self.player.currentRoom.items}\n{path}\n")
 
-    def backStatusPrint(self):
+    def backStatusPrint(self, backTrack):
         print(f"\n\nbackTrack<---{self.player.currentRoom.room_id}: {self.player.currentRoom.name} - moves: {self.player.currentRoom.exits} -{self.player.currentRoom.description} - error: {self.player.currentRoom.errors} - {self.player.currentRoom.items}\n{backTrack}")
 
     def dfs(self):
@@ -52,18 +49,21 @@ class Path:
         
         self.saved_map.append(self.player.currentRoom.room_id)
         # graph consisting of 500 rooms
-
+        sleep(5)
         while len(self.mapped) < 499:
             # write this to file 
-            self.statusPrint()
+            self.statusPrint(path)
+            # print(f"\n\n{self.player.currentRoom.room_id}: {self.player.currentRoom.name} - moves: {self.player.currentRoom.exits}\n{self.player.currentRoom.description}\nerror: {self.player.currentRoom.errors} \n{self.player.currentRoom.items}\n{path}\nmaped: {self.saved_map}")
+
             if self.player.currentRoom.room_id == name_changer:
                 break
-            # if self.player.currentRoom.items:
-            #     for item in self.player.currentRoom.items:
-            #         j = self.player.post_take(item)
-            #         self.player.currentRoom = Room(j)
-            #         print(self.player.currentRoom.messages)
-            #         sleep(self.player.currentRoom.cooldown)
+            
+            if self.player.currentRoom.items > 0 :
+                for item in self.player.currentRoom.items:
+                    j = self.player.post_take(item)
+                    self.player.currentRoom = Room(j)
+                    print(self.player.currentRoom.messages)
+                    sleep(self.player.currentRoom.cooldown)
 
             if self.player.currentRoom.room_id not in self.mapped:
                 self.saved_map.append(self.player.currentRoom)
@@ -76,7 +76,8 @@ class Path:
                 self.mapped[currentroomID].remove(backTrack[-1])
             # when players hits dead end, backtrack and store path
             while not len(self.mapped[self.player.currentRoom.room_id]):
-                self.backStatusPrint()
+                # self.backStatusPrint(backTrack)
+                print(f"\n\nbackTrack<---{self.player.currentRoom.room_id}: {self.player.currentRoom.name} - moves: {self.player.currentRoom.exits} -{self.player.currentRoom.description} - error: {self.player.currentRoom.errors} - {self.player.currentRoom.items}\n{backTrack}")
 
                 back = backTrack.pop()
                 path.append(back)
