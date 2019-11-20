@@ -65,6 +65,10 @@ class Path:
             if self.player.currentRoom.room_id == 0:
                 print('in room 0')
                 break
+
+            if self.player.currentRoom.name == 'Shop':
+                print('in shop!')
+                break
             
             # UNCOMMENT THIS TO PICK UP ALLLL THE TREASURE
             # if len(self.player.currentRoom.items) > 0:
