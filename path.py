@@ -22,7 +22,17 @@ class Path:
             elif move == "w":
                 backTrack.append("e")
         backTrack.reverse()
-        return backTrack
+        print(backTrack)
+        print(f"\n\n{self.player.currentRoom.room_id}: {self.player.currentRoom.name} - {self.player.currentRoom.description} - {self.player.currentRoom.items}\n")
+        sleep(15)
+        for move in backTrack:
+            room = Room(self.player.post_move(move))
+
+            self.player.currentRoom = room
+            print(f"\n\n{self.player.currentRoom.room_id}: {self.player.currentRoom.name} - {self.player.currentRoom.description} - {self.player.currentRoom.items}\n")
+            sleep(self.player.currentRoom.cooldown)
+
+
         
 
     def dfs(self):

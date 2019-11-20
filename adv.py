@@ -32,14 +32,15 @@ def post_status():
 
 
 if __name__ == "__main__":
-    # json_player = post_status()
-    # sleep(5)
-    # room_json = get_init()
-    # room = Room(room_json)
-    # player = Player(json_player, room)
+    json_player = post_status()
+    sleep(5)
+    room_json = get_init()
+    room = Room(room_json)
+    player = Player(json_player, None)
+    player.currentRoom = room
 
-    # path = Path(player)
+    path = Path(player)
 
-    b = Path(None).backtrack(['n', 'n', 'n', 'n', 'n', 'w', 'n', 'e'])
-    print(b)
+    path.backtrack(['n', 'n', 'n', 'n', 'n', 'w', 'n', 'e'])
+
     # path.dfs()
