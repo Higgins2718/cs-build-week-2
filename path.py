@@ -1,6 +1,10 @@
 from time import sleep
 from room import Room
 
+name_changer = 467 #: Pirate Ry's
+
+
+
 
 class Path:
     def __init__(self, player):
@@ -11,30 +15,33 @@ class Path:
 
 
     def backtrack(self, arr):
-        # backTrack = []
-        # for move in arr:
-        #     if move == "n":
-        #         backTrack.append("s")
-        #     elif move == "s":
-        #         backTrack.append("n")
-        #     elif move == "e":
-        #         backTrack.append("w")
-        #     elif move == "w":
-        #         backTrack.append("e")
-        # backTrack.reverse()
-        # print(backTrack)
+        backTrack = []
+        for move in arr:
+            if move == "n":
+                backTrack.append("s")
+            elif move == "s":
+                backTrack.append("n")
+            elif move == "e":
+                backTrack.append("w")
+            elif move == "w":
+                backTrack.append("e")
+        backTrack.reverse()
+        print(backTrack)
         arr.reverse()
         print(f"\n\n{self.player.currentRoom.room_id}: {self.player.currentRoom.name} - {self.player.currentRoom.description} - {self.player.currentRoom.items}\n")
         sleep(15)
-        for move in arr:
+        for move in backTrack:
             room = Room(self.player.post_move(move))
-
             self.player.currentRoom = room
             print(f"\n\n{self.player.currentRoom.room_id}: {self.player.currentRoom.name} - {self.player.currentRoom.description} - {self.player.currentRoom.items}\n")
             sleep(self.player.currentRoom.cooldown)
 
 
-        
+    def statusPrint(self):
+        print(f"\n\n{self.player.currentRoom.room_id}: {self.player.currentRoom.name} - moves: {self.player.currentRoom.exits}\n{self.player.currentRoom.description}\nerror: {self.player.currentRoom.errors} \n{self.player.currentRoom.items}\n{path}\nmaped: {self.saved_map}")
+
+    def backStatusPrint(self):
+        print(f"\n\nbackTrack<---{self.player.currentRoom.room_id}: {self.player.currentRoom.name} - moves: {self.player.currentRoom.exits} -{self.player.currentRoom.description} - error: {self.player.currentRoom.errors} - {self.player.currentRoom.items}\n{backTrack}")
 
     def dfs(self):
         path = []
@@ -42,10 +49,15 @@ class Path:
 
         # {0: ['n', 's', 'w', 'e']}
         self.mapped[self.player.currentRoom.room_id] = self.player.currentRoom.exits
+        
+        self.saved_map.append(self.player.currentRoom.room_id)
         # graph consisting of 500 rooms
-        sleep(2)
-        while len(self.mapped) < 499:
 
+        while len(self.mapped) < 499:
+            # write this to file 
+            self.statusPrint()
+            if self.player.currentRoom.room_id == name_changer:
+                break
             # if self.player.currentRoom.items:
             #     for item in self.player.currentRoom.items:
             #         j = self.player.post_take(item)
@@ -53,26 +65,24 @@ class Path:
             #         print(self.player.currentRoom.messages)
             #         sleep(self.player.currentRoom.cooldown)
 
-
-            
-            print(f"\n\n{self.player.currentRoom.room_id}: {self.player.currentRoom.name} - moves: {self.player.currentRoom.exits} \n {self.player.currentRoom.description} - error: {self.player.currentRoom.errors} - {self.player.currentRoom.items}\n{path}")
             if self.player.currentRoom.room_id not in self.mapped:
                 self.saved_map.append(self.player.currentRoom)
+
                 currentroomID = self.player.currentRoom.room_id
                 exits = self.player.currentRoom.exits
+                
                 # not a mapped room add to map
                 self.mapped[currentroomID] = exits
                 self.mapped[currentroomID].remove(backTrack[-1])
             # when players hits dead end, backtrack and store path
             while not len(self.mapped[self.player.currentRoom.room_id]):
-                print(f"\n\nbackTrack<---{self.player.currentRoom.room_id}: {self.player.currentRoom.name} - moves: {self.player.currentRoom.exits} -{self.player.currentRoom.description} - error: {self.player.currentRoom.errors} - {self.player.currentRoom.items}\n{backTrack}")
+                self.backStatusPrint()
+
                 back = backTrack.pop()
                 path.append(back)
-                # move to next room
+                
+                # move to next room                
                 room = Room(self.player.post_move(back))
-                if room == None:
-                    print("error with backtrack")
-                    break
                 self.player.currentRoom = room
                 wait = self.player.currentRoom.cooldown
                 sleep(wait)
