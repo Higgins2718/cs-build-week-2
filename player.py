@@ -51,16 +51,19 @@ class Player:
         print(response.text)
         return loads(response.text)
 
-    def post_take(self):
+    def post_take(self, item):
         headers = {
             'Authorization': api_key,
             'Content-Type': 'application/json',
         }
 
-        data = '{"name":"treasure"}'
+        if item == "tiny treasure":
+            data = f'{"name":"tiny treasure"}'
+        else:
+            return None
 
         response = requests.post('https://lambda-treasure-hunt.herokuapp.com/api/adv/take/', headers=headers, data=data)
-        print(response.text)
+        # print(response.text)
         return loads(response.text)
 
     # def post_status(self):
