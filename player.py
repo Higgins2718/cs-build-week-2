@@ -57,13 +57,17 @@ class Player:
             'Content-Type': 'application/json',
         }
 
-        if item == "tiny treasure":
-            data = f'{"name":"tiny treasure"}'
-        else:
-            return None
+        
+        if item == 'small treasure':
+            data = '{"name":"small treasure"}'
+        elif item == 'tiny treasure':
+            data = '{"name":"tiny treasure"}'
+        elif item == 'shiny treasure':
+            data = '{"name":"shiny treasure"}'
 
         response = requests.post('https://lambda-treasure-hunt.herokuapp.com/api/adv/take/', headers=headers, data=data)
         # print(response.text)
+        print(response.status_code)
         return loads(response.text)
 
     # def post_status(self):

@@ -56,11 +56,17 @@ class Path:
             # print(f"\n\n{self.player.currentRoom.room_id}: {self.player.currentRoom.name} - moves: {self.player.currentRoom.exits}\n{self.player.currentRoom.description}\nerror: {self.player.currentRoom.errors} \n{self.player.currentRoom.items}\n{path}\nmaped: {self.saved_map}")
 
             if self.player.currentRoom.room_id == name_changer:
+                print('in name changer room')
+                break
+
+            if self.player.currentRoom.room_id == 0:
+                print('in room 0')
                 break
             
-            if self.player.currentRoom.items > 0 :
+            if len(self.player.currentRoom.items) > 0:
                 for item in self.player.currentRoom.items:
                     j = self.player.post_take(item)
+                    sleep(5)
                     self.player.currentRoom = Room(j)
                     print(self.player.currentRoom.messages)
                     sleep(self.player.currentRoom.cooldown)
