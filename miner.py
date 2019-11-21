@@ -30,7 +30,7 @@ def proof_of_work(last_proof, difficulty):
     while valid_proof(last_proof, proof, difficulty) is False:
         proof += 1
 
-    print("Proof found: " + str(proof) + " in " + str(timer() - start))
+    print("Proof found: " + str(proof) + " in " + str(timer() - start) + "\n")
     return proof
 
 def valid_proof(last_hash, proof, difficulty):
@@ -61,7 +61,7 @@ def last_proof():
     }
     response = requests.get('https://lambda-treasure-hunt.herokuapp.com/api/bc/last_proof/', headers=headers)
     
-    print(f'\n{response.text}\n\n')
+    print(f'{response.text}')
     return response.json()
 
 def mine_coin(proof):
@@ -78,7 +78,9 @@ def mine_coin(proof):
     return response.json()
 
 if __name__ == "__main__":
+    i = 1
     while True:
+        print(f"{i}. ", end=" ")
         #get last proof
         last_proof_json = last_proof()
         last_proof_cooldown = last_proof_json.get('cooldown')
@@ -93,4 +95,4 @@ if __name__ == "__main__":
         mine_coin_json = mine_coin(work)
         mine_coin_cooldown = mine_coin_json.get('cooldown')
         sleep(mine_coin_cooldown)
-        
+        i += 1
