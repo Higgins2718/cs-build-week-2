@@ -41,7 +41,6 @@ class Player:
         else:
             return None
 
-
     def get_init(self):
         headers = {
             'Authorization': api_key,
@@ -56,7 +55,6 @@ class Player:
             'Authorization': api_key,
             'Content-Type': 'application/json',
         }
-
         
         if item == 'small treasure':
             data = '{"name":"small treasure"}'
@@ -70,15 +68,12 @@ class Player:
         print(response.status_code)
         return loads(response.text)
 
-    # def post_status(self):
-    #     headers = {
-    #         'Authorization': api_key,
-    #         'Content-Type': 'application/json',
-    #     }
+    def post_status(self):
+        headers = {
+            'Authorization': api_key,
+            'Content-Type': 'application/json',
+        }
 
-    #     response = requests.post('https://lambda-treasure-hunt.herokuapp.com/api/adv/status/', headers=headers)
-    #     print(response.text)
-    #     return loads(response.text)
+        response = requests.post('https://lambda-treasure-hunt.herokuapp.com/api/adv/status/', headers=headers)
 
-        # print(response.text)
-        # return loads(response.text)
+        return loads(response.text)
